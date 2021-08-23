@@ -1,0 +1,12 @@
+
+
+
+<div class="container mt-5">
+    <h2>Work details</h2>
+    <h3>{{ins_work.str_title}}</h3>
+    <p> <b>Project Description:</b> {{ins_work.txt_descrption}}</p>
+    <p> <b>Project Name:</b> {{ins_work.fk_project_id_id__str_name}}</p>
+    <p> <b>Work Type:</b>{{ins_work.fk_type_id_id__str_name}}</p>
+    <p><b>Date Created:</b>{{ins_work.dat_created |date}}</p>
+    <p><b>Work Status:</b>{{ins_work.fk_work_status_id_id__str_name}}</p>
+</div>

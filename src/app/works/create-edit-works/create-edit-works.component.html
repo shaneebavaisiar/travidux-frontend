@@ -1,0 +1,61 @@
+
+<form >
+    <div class="mb-3" *ngIf="int_id==0">
+      <label for="exampleInputEmail1" class="form-label" >Title</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="str_title" name="str_title">
+      {{str_title}}
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Description</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="txt_descrption" name="txt_descrption" >
+    </div>
+    <div class="mb-3" >
+        
+        <label for="exampleInputEmail1" class="form-label">Project Name</label>
+    
+            <br>
+            <select [(ngModel)]="fk_project_id_id" name="fk_project_id_id">
+                <option value="" *ngFor="let project of lst_project "  [ngValue]="project.id" >
+                    {{project.str_name}}
+                </option>
+            </select> {{fk_project_id_id}}
+      </div>
+      <div class="mb-3" *ngIf="int_id==0">
+        <label for="exampleInputEmail1" class="form-label">Attachment</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="jsn_attachment" name="jsn_attachment" >
+      </div>
+      <div class="mb-3" *ngIf="int_id==0">
+        <label for="exampleInputEmail1" class="form-label">Date Created</label>
+
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [ngModel]="dat_created |date" name="dat_created" value="dat_created" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">work type</label>
+
+        <br>
+        <select [(ngModel)]="fk_type_id_id" name="fk_type_id_id">
+            <option value="" *ngFor="let type of lst_work_type "  [ngValue]="type.id" >
+                {{type.str_name}}
+            </option>
+        </select>
+        {{fk_type_id_id}}
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">work status</label>
+
+        <br>
+        <select [(ngModel)]="fk_work_status_id_id" name="fk_work_status_id_id" >
+            <option value="" *ngFor="let workstatus of lst_work_status "  [ngValue]="workstatus.id" >
+                {{workstatus.str_name}}
+            </option>
+        </select>{{fk_work_status_id_id}}
+        <br>
+      
+      </div>
+    <button type="submit" class="btn btn-primary" (click)="SubmitWork()" *ngIf="int_id==0">Add</button>
+    <button type="submit" (click)=" EditWork()" *ngIf="int_id!=0" class="btn btn-primary">Edit</button>   
+  </form>
+
+  
+  
